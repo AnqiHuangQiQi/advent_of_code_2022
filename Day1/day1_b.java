@@ -11,7 +11,8 @@ class Day1B {
   }
 
   private static int getTopCalorie() {
-    Stack<Integer> top = new Stack();
+    Stack<Integer> top = new Stack<Integer>();
+    Stack<Integer> tmp = new Stack<Integer>();
     String dir = System.getProperty("user.dir");
     try {
 			BufferedReader reader = new BufferedReader(new FileReader(dir + "/day1_input.txt"));
@@ -22,7 +23,6 @@ class Day1B {
 
 			while (line != null) {
         if (line.length() == 0) {
-          Stack<Integer> tmp = new Stack();
 
           int i = 3;
           while (!top.empty() && i-- > 0) {
@@ -40,6 +40,7 @@ class Day1B {
           }
 
           cur = 0;
+          tmp.clear();
         } else {
           // If there is no valid input, add validation here for each line string
           cur += Integer.valueOf(line);
